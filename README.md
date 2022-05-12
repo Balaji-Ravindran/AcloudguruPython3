@@ -5,17 +5,17 @@ print("Hello, World!")
 
 or
 
+Setting shebang
+#!/usr/bin/env python3.6
+print("Hello, World")
+
 Executable from anywhere (in our $PATH).
 Executable without explicitly using the python3.6 CLI.
 We can set the process to interpret our scripts by setting a shebang at
 the top of the file: and can execute without using python3.6 CLI
 
-$ hello.py
+$ helloworld.py
 
-Setting shebang
-#!/usr/bin/env python3.6
-print("Hello, World")
+To make this happen we have to provide execute permissions to helloworld.py 
 
-to make this happen we have to provide execute permissions to hellp.py 
-
-chmod u+x hello.py
+chmod u+x helloworld.py
