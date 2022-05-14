@@ -6,3 +6,15 @@
   6
   7 print(f"{name} was born on {birthdate}")
   8 print(f"half of your age is {age / 2}")
+  
+  
+#### output ####
+Executing the python script
+
+bin $ age
+What is you Name? Balaji
+What is your birthdate? 04/09/1992
+How Old are you? 29
+Balaji was born on 04/09/1992
+half of your age is 14.5
+
