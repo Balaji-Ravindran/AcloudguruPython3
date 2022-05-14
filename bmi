@@ -32,3 +32,30 @@
  32         break
  33     else:
  34         print("Error: Unknown measurement system. Please use Imperial or metric.")
+ 
+ 
+ 
+ 
+ ### Output ###
+ bin $ bmi
+What is your height? (inches or meters) 78
+What is your weight? (pounds or kilograms) 34
+Are your measurements in metric or imperial units? Metric
+Your BMI is 0.005588428665351742
+
+bin $ bmi
+What is your height? (inches or meters) 90
+What is your weight? (pounds or kilograms) 23
+Are your measurements in metric or imperial units? Imperial
+Your BMI is 1.9961728395061729
+
+bin $ bmi
+What is your height? (inches or meters) 78
+What is your weight? (pounds or kilograms) 67
+Are your measurements in metric or imperial units? Balaji
+Error: Unknown measurement system. Please use Imperial or metric.
+What is your height? (inches or meters) 78
+What is your weight? (pounds or kilograms) 89
+Are your measurements in metric or imperial units? MEtric
+Your BMI is 0.01462853385930309
+
