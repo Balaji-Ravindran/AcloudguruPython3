@@ -19,3 +19,24 @@ $ helloworld.py
 To make this happen we have to provide execute permissions to helloworld.py 
 
 chmod u+x helloworld.py
+
+
+###### Reading User Input #######
+
+age - Python script
+
+In Python, we use input() function to take input from the user. Whatever you enter as input, the input function converts it into a string. If you enter an integer value still input() function convert it into a string
+
+By default input() function takes the user’s input in a string. So, to take the input in the form of int you need to use int() along with the input function.
+Ex: num = int(input("Enter a number:"))
+
+float input along with the input function.
+num =float(input("Enter number "))
+
+list input along with the input function
+li =list(input("Enter number "))
+
+take tuple input along with the input function.
+num =tuple(input("Enter number "))
+
+
