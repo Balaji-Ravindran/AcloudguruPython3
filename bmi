@@ -1,0 +1,34 @@
+  1 #!/usr/bin/env python3.6
+  2
+  3 #BMI = (weight in kg / height in meters squared)
+  4 #Imperial Verison: BMI * 703
+  5
+  6 def gather_info():
+  7     height = float(input("What is your height? (inches or meters) "))
+  8     weight = float(input("What is your weight? (pounds or kilograms) "))
+  9     system = input("Are your measurements in metric or imperial units? ").lower().strip()     ## lower method to get all the passed values in lower case and strip - to srtip any whitespaces, tabs, or newline char in beginning and end inbuilt functions used
+ 10     return(height, weight, system)                                                            ## return multiple arugments from a function can be done using tuple and later can be unpacked when we call gather_info function
+ 11
+ 12 def calculate_bmi(weight, height, system="metric"):                                           ## If the arugument has a default value that can done inside the function declaration and multiple arugments can be passed to single function
+ 13     """                                                                                       #### Doc String - Information about the Function and can generate documentation
+ 14     Return the Body Mass Index for the
+ 15     given weight, height and measurement system.
+ 16     """
+ 17     if system == "metric":
+ 18         bmi = (weight / (height ** 2))
+ 19     else:
+ 20         bmi = 703 * (weight / (height ** 2))
+ 21     return bmi
+ 22
+ 23 while True:
+ 24     height, weight, system = gather_info()                                                   ## Unpacking the gather info function
+ 25     if system.startswith("i"):
+ 26         bmi = calculate_bmi(weight, system = system, height = height)                        ## Using the arugments out of order and thats using keyword arguments ## or use it in same order like this bmi = calculate_bmi(weight, height, system) 
+ 27         print(f"Your BMI is {bmi}")
+ 28         break
+ 29     elif system.startswith("m"):
+ 30         bmi = calculate_bmi(weight, height)                                                  ## Since System is already defaulted to metric in calculate_bmi function no need to mention system here explicitly
+ 31         print(f"Your BMI is {bmi}")
+ 32         break
+ 33     else:
+ 34         print("Error: Unknown measurement system. Please use Imperial or metric.")
