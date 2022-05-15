@@ -1,0 +1,56 @@
+  1 #!/usr/bin/env python3.6
+  2
+  3 import os
+  4
+  5 stage = os.environ["STAGE"].upper()
+  6
+  7 output = f"We are running in {stage}"
+  8
+  9 if stage.startswith("PROD"):
+ 10     output = "DANGER!!! - " + output
+ 11
+ 12 print(output)
+
+
+### Output ###
+
+bin $ STAGE=staging envvariable
+We are running in STAGING
+bin $ STAGE=Production envvariable
+DANGER!!! - We are running in PRODUCTION
+bin $ envvariable                                                                  ## If no Env variable is passed during the execution of the script, failed with keyerror
+Traceback (most recent call last):
+  File "/home/cloud_user/bin/envvariable", line 5, in <module>
+    stage = os.environ["STAGE"].upper()
+  File "/usr/local/lib/python3.6/os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'STAGE'
+
+
+
+
+### Using getenv() function passing default arugments to the function if nothing is passed during the execution ###
+
+  1 #!/usr/bin/env python3.6
+  2
+  3 import os
+  4
+  5 stage = os.getenv("STAGE", default="dev").upper()
+  6
+  7 output = f"We are running in {stage}"
+  8
+  9 if stage.startswith("PROD"):
+ 10     output = "DANGER!!! - " + output
+ 11
+ 12 print(output)
+ 
+ 
+ ### output ###
+ 
+bin $ STAGE=production envvariable
+DANGER!!! - We are running in PRODUCTION
+bin $ STAGE=staging envvariable
+We are running in STAGING
+bin $ envvariable                                                                ## Here no arugment is passed, but the output displayed is We are running in DEV, because dev is defaulted
+We are running in DEV
+bin $
