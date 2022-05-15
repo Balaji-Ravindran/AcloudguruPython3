@@ -1,0 +1,91 @@
+  1 #!/usr/bin/env python3.6
+  2
+  3 import time
+  4
+  5 start_time = time.localtime()
+  6 print(f"Timer Started at {time.strftime('%X', start_time)}")
+  7
+  8 #wait for the user to stop timer
+  9 input("Press Enter to stop timer ")
+ 10
+ 11 stop_time = time.localtime()
+ 12 difference = time.mktime(stop_time) - time.mktime(start_time)
+ 13
+ 14 print(f"Time stopped at {time.strftime('%X', stop_time)}")
+ 15 print(f"Total Time: {difference}")
+ 
+ 
+ ### output ###
+ bin $ timer
+Timer Started at 11:09:01
+Press Enter to stop timer
+Time stopped at 11:09:12
+Total Time: 11.0
+
+
+
+
+
+###### Without using strftime() #######
+
+  1 #!/usr/bin/env python3.6
+  2
+  3 import time
+  4
+  5 start_time = time.localtime()
+  6 print(f"Timer Started at {start_time}")
+  7
+  8 #wait for the user to stop timer
+  9 input("Press Enter to stop timer ")
+ 10
+ 11 stop_time = time.localtime()
+ 12 difference = time.mktime(stop_time) - time.mktime(start_time)
+ 13
+ 14 print(f"Time stopped at {stop_time}")
+ 15 print(f"Total Time: {difference}")
+
+
+### Ouput ###
+bin $ timer
+Timer Started at time.struct_time(tm_year=2022, tm_mon=5, tm_mday=15, tm_hour=11, tm_min=17, tm_sec=12, tm_wday=6, tm_yday=135, tm_isdst=0)
+Press Enter to stop timer
+Time stopped at time.struct_time(tm_year=2022, tm_mon=5, tm_mday=15, tm_hour=11, tm_min=17, tm_sec=21, tm_wday=6, tm_yday=135, tm_isdst=0)
+Total Time: 9.0
+
+
+
+
+
+###### Importing only neccessary Packages in time module and removed time.strftime, time.mktime and time.localtime ########
+
+  1 #!/usr/bin/env python3.6
+  2
+  3 #import time
+  4
+  5 from time import localtime, mktime, strftime
+  6
+  7 start_time = localtime()
+  8 print(f"Timer Started at {strftime('%X', start_time)}")
+  9
+ 10 #wait for the user to stop timer
+ 11 input("Press Enter to stop timer ")
+ 12
+ 13 stop_time = localtime()
+ 14 difference = mktime(stop_time) - mktime(start_time)
+ 15
+ 16 print(f"Time stopped at {strftime('%X', stop_time)}")
+ 17 print(f"Total Time: {difference}")
+  
+  
+### Ouput ###
+bin $ timer
+Timer Started at 11:24:48
+Press Enter to stop timer
+Time stopped at 11:25:12
+Total Time: 24.0
+
+
+
+
+ 
+ 
