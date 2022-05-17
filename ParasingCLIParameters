@@ -2,7 +2,7 @@
   2
   3 import sys
   4
-  5 print(f"First Argument {sys.argv[0]}")
+  5 print(f"First Argument {sys.argv[0]}")                ## Used sys.argv with {} braces
 
 
 ### Output ###
@@ -17,7 +17,7 @@ First Argument: /home/cloud_user/bin/param_echo
   2
   3 import sys
   4
-  5 print(f"First Argument:", sys.argv[0])
+  5 print(f"First Argument:", sys.argv[0])                ## Used sys.argv without {} braces
 
 
 ### Output ###
