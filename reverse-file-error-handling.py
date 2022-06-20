@@ -27,3 +27,5 @@ else:
 
         for line in lines:
             print(line.strip()[::-1])
+finally
+    print("Finally")
