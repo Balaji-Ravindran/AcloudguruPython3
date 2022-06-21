@@ -1,0 +1,88 @@
+bals@WINmnA7363w4c2q:~$ python3.6
+Python 3.6.4 (default, May  5 2022, 00:25:12)
+[GCC 9.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import subprocess
+>>> proc = subprocess.run(["ls", "-l"])
+total 47616
+drwxr-xr-x 1 bals bals     4096 Oct 26  2021 aws
+-rw-r--r-- 1 bals bals 44939530 Oct 27  2021 awscliv2.zip
+-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.py
+-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.pycurl
+drwxr-xr-x 1 bals bals     4096 May  8 12:46 python-helloworld
+>>> proc
+CompletedProcess(args=['ls', '-l'], returncode=0)
+>>> proc.args
+['ls', '-l']
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> proc = subprocess.run(
+... ["ls", "-l"],
+... stdout=subprocess.PIPE,
+... stderr=subprocess.PIPE,
+... )
+>>>
+>>>
+>>> proc
+CompletedProcess(args=['ls', '-l'], returncode=0, stdout=b'total 47616\ndrwxr-xr-x 1 bals bals     4096 Oct 26  2021 aws\n-rw-r--r-- 1 bals bals 44939530 Oct 27  2021 awscliv2.zip\n-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.py\n-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.pycurl\ndrwxr-xr-x 1 bals bals     4096 May  8 12:46 python-helloworld\n', stderr=b'')
+>>>
+>>>
+>>>
+>>> proc.stdout
+b'total 47616\ndrwxr-xr-x 1 bals bals     4096 Oct 26  2021 aws\n-rw-r--r-- 1 bals bals 44939530 Oct 27  2021 awscliv2.zip\n-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.py\n-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.pycurl\ndrwxr-xr-x 1 bals bals     4096 May  8 12:46 python-helloworld\n'
+>>> print(proc.stdout)
+b'total 47616\ndrwxr-xr-x 1 bals bals     4096 Oct 26  2021 aws\n-rw-r--r-- 1 bals bals 44939530 Oct 27  2021 awscliv2.zip\n-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.py\n-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.pycurl\ndrwxr-xr-x 1 bals bals     4096 May  8 12:46 python-helloworld\n'
+>>>
+>>>
+>>>
+>>> bytes([46, 46, 46])
+b'...'
+>>> bytes([255, 1, 0])
+b'\xff\x01\x00'
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> print(proc.stdout.decode())
+total 47616
+drwxr-xr-x 1 bals bals     4096 Oct 26  2021 aws
+-rw-r--r-- 1 bals bals 44939530 Oct 27  2021 awscliv2.zip
+-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.py
+-rw-r--r-- 1 bals bals  1908226 Oct 28  2021 get-pip.pycurl
+drwxr-xr-x 1 bals bals     4096 May  8 12:46 python-helloworld
+
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> new_proc = subprocess.run(['cat', 'fake.txt'])
+cat: fake.txt: No such file or directory
+>>> new_proc
+CompletedProcess(args=['cat', 'fake.txt'], returncode=1)
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> new_proc = subprocess.run(['cat', 'fake.txt'], check=True)
+cat: fake.txt: No such file or directory
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/local/lib/python3.6/subprocess.py", line 418, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['cat', 'fake.txt']' returned non-zero exit status 1.
